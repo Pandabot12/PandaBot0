@@ -46,10 +46,15 @@ client.on('chat', function(channel, user, message, self){
   sk.push(message.match(/\d+/g));
     client.say("BeL1kePanda_Bot","Solo: "+sw+" Wins ("+sk+" Kills)");}});
 
-  client.on('chat', function(channel, user, message, self){
-    if(message.match("!remsolo") && (user.badges.broadcaster == 1 || user.mod==true)){
+client.on('chat', function(channel, user, message, self){
+  if(message.match("!remsolo") && (user.badges.broadcaster == 1 || user.mod==true)){
+  sw = sw-1;
+    client.say("BeL1kePanda_Bot","Solo: "+sw+" Wins ("+sk+" Kills)");}
+  else if(message.match("!remsolo k") && (user.badges.broadcaster == 1 || user.mod==true)){
     sw = sw-1;
-      client.say("BeL1kePanda_Bot","Solo: "+sw+" Wins ("+sk+" Kills)");}});
+    k.slice(0, -1);
+      client.say("BeL1kePanda_Bot","Solo: "+sw+" Wins ("+sk+" Kills)");}
+  });
 //Duo
 client.on('chat', function(channel, user, message, self){
   if(message.match(/(!addduo)+/i) && (user.badges.broadcaster == 1 || user.mod==true)){
