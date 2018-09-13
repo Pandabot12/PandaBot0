@@ -46,6 +46,10 @@ client.on('chat', function(channel, user, message, self){
   sk.push(message.match(/\d+/g));
     client.say("BeL1kePanda_Bot","Solo: "+sw+" Wins ("+sk+" Kills)");}});
 
+  client.on('chat', function(channel, user, message, self){
+    if(message.match("!remsolo") && (user.badges.broadcaster == 1 || user.mod==true)){
+    sw = sw-1;
+      client.say("BeL1kePanda_Bot","Solo: "+sw+" Wins ("+sk+" Kills)");}});
 //Duo
 client.on('chat', function(channel, user, message, self){
   if(message.match(/(!addduo)+/i) && (user.badges.broadcaster == 1 || user.mod==true)){
@@ -102,23 +106,6 @@ client.on('chat', function(channel, user, message, self){
     client.say("BeL1kePanda_Bot", t222)
     ///console.log (user.user-type);
     //console.log(user.badges.broadcaster, user.mod );
-    //console.log (t222, t222.value,t222.toString,t222.toString());
+    //console.log ();
   }
 });
-/*
-///non-mod\\\
-/client.on('chat', function(channel, user, message, self){
-  if(message === "!test"){
-    client.say("bel1kepanda", "it's a test2");
-    ///console.log (user.user-type);
-    console.log(user.badges.broadcaster, user.mod );
-  }
-});
-
-/// Mod\\\
-client.on('chat', function(channel, user, message, self){
-  if(message === "!test2" && (user.badges.broadcaster == 1 || user.mod==true) ){
-    client.say("bel1kepanda", "you are a mod");
-  }
-});
-*/
