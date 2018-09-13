@@ -41,7 +41,7 @@ var t222
 
 //Solo
 client.on('chat', function(channel, user, message, self){
-  if(message.match(/(!addsolo)+/i) && (user.badges.broadcaster == 1 || user.mod==true)){
+  if(message.match(/^!addsolo\s\d{1,2}$/gmi) && (user.badges.broadcaster == 1 || user.mod==true)){
   sw = sw+1;
   sk.push(message.match(/\d+/g));
     client.say("BeL1kePanda_Bot","Solo: "+sw+" Wins ("+sk+" Kills)");}});
