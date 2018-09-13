@@ -47,12 +47,12 @@ client.on('chat', function(channel, user, message, self){
     client.say("BeL1kePanda_Bot","Solo: "+sw+" Wins ("+sk+" Kills)");}});
 
 client.on('chat', function(channel, user, message, self){
-  if(message.match("!remsolo") && (user.badges.broadcaster == 1 || user.mod==true)){
+  if(message === "!remsolo" && (user.badges.broadcaster == 1 || user.mod==true)){
   sw = sw-1;
     client.say("BeL1kePanda_Bot","Solo: "+sw+" Wins ("+sk+" Kills)");}
-  else if(message.match("!remsolo k") && (user.badges.broadcaster == 1 || user.mod==true)){
+  else if(message === "!remsolo k" && (user.badges.broadcaster == 1 || user.mod==true)){
     sw = sw-1;
-    sk.splice(-1,1);
+    sk.pop();
       client.say("BeL1kePanda_Bot","kill removed");}
   });
 //Duo
