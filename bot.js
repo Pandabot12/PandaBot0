@@ -10,9 +10,9 @@ var options = {
   },
   identity: {
     username: "BeL1kePanda_Bot",
-    password: "oauth:q87c6lca1j7h18s5eqwz86zie8ri11"
+    password: process.env.autt
   },
-  channels: ["bel1kepanda","ciprikiller3lite"]
+  channels: ["BeL1kePanda_Bot"]
 };
 
 var client = new tmi.client(options);
@@ -25,7 +25,7 @@ client.on('connected', function(address, port) {
 });
 
 client.on('connected', function(address, port) {
-  client.say("ciprikiller3lite", "Hello! I joined to this channel")
+  client.say("BeL1kePanda_Bot", "Hello! I joined to this channel")
 });
 
 ///comm\\\
@@ -44,21 +44,21 @@ client.on('chat', function(channel, user, message, self){
   if(message.match(/(!addsolo)+/i) && (user.badges.broadcaster == 1 || user.mod==true)){
   sw = sw+1;
   sk.push(message.match(/\d+/g));
-    client.say("ciprikiller3lite","Solo: "+sw+" Wins ("+sk+" Kills)");}});
+    client.say("BeL1kePanda_Bot","Solo: "+sw+" Wins ("+sk+" Kills)");}});
 
 //Duo
 client.on('chat', function(channel, user, message, self){
   if(message.match(/(!addduo)+/i) && (user.badges.broadcaster == 1 || user.mod==true)){
   dw = dw+1;
   dk.push(message.match(/\d+/g));
-    client.say("ciprikiller3lite","Duo: "+dw+" Wins ("+dk+" Kills)");}});
+    client.say("BeL1kePanda_Bot","Duo: "+dw+" Wins ("+dk+" Kills)");}});
 
 //Squad
 client.on('chat', function(channel, user, message, self){
   if(message.match(/(!addsquad)+/i) && (user.badges.broadcaster == 1 || user.mod==true)){
   sqw = sqw+1;
   sqk.push(message.match(/\d+/g));
-    client.say("ciprikiller3lite","Squad: "+sqw+" Wins ("+sqk+" Kills)");}});
+    client.say("BeL1kePanda_Bot","Squad: "+sqw+" Wins ("+sqk+" Kills)");}});
 
 //Reset
 client.on('chat', function(channel, user, message, self){
@@ -70,7 +70,7 @@ client.on('chat', function(channel, user, message, self){
     dk = []
     sqk = []
     t222
-    client.say("ciprikiller3lite","Done");}});
+    client.say("BeL1kePanda_Bot","Done");}});
 
 //Wins
 client.on('chat', function(channel, user, message, self){
@@ -99,7 +99,7 @@ client.on('chat', function(channel, user, message, self){
     t222 = nowins}
     }
     myfunction();
-    client.say("ciprikiller3lite", t222)
+    client.say("BeL1kePanda_Bot", t222)
     ///console.log (user.user-type);
     //console.log(user.badges.broadcaster, user.mod );
     //console.log (t222, t222.value,t222.toString,t222.toString());
