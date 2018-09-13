@@ -53,8 +53,9 @@ client.on('chat', function(channel, user, message, self){
   else if(message === "!remsolo k" && (user.badges.broadcaster == 1 || user.mod==true)){
     sw = sw-1;
     sk.pop();
-      client.say("BeL1kePanda_Bot","kill removed");}
+      client.say("BeL1kePanda_Bot","Solo: "+sw+" Wins ("+sk+" Kills)");}
   });
+
 //Duo
 client.on('chat', function(channel, user, message, self){
   if(message.match(/(!addduo)+/i) && (user.badges.broadcaster == 1 || user.mod==true)){
@@ -62,12 +63,32 @@ client.on('chat', function(channel, user, message, self){
   dk.push(message.match(/\d+/g));
     client.say("BeL1kePanda_Bot","Duo: "+dw+" Wins ("+dk+" Kills)");}});
 
+client.on('chat', function(channel, user, message, self){
+  if(message === "!remduo" && (user.badges.broadcaster == 1 || user.mod==true)){
+  dw = dw-1;
+    client.say("BeL1kePanda_Bot","Duo: "+dw+" Wins ("+dk+" Kills)");}
+  else if(message === "!remduo k" && (user.badges.broadcaster == 1 || user.mod==true)){
+    dw = dw-1;
+    dk.pop();
+      client.say("BeL1kePanda_Bot","Duo: "+dw+" Wins ("+dk+" Kills)");}
+      });
+
 //Squad
 client.on('chat', function(channel, user, message, self){
   if(message.match(/(!addsquad)+/i) && (user.badges.broadcaster == 1 || user.mod==true)){
   sqw = sqw+1;
   sqk.push(message.match(/\d+/g));
     client.say("BeL1kePanda_Bot","Squad: "+sqw+" Wins ("+sqk+" Kills)");}});
+
+client.on('chat', function(channel, user, message, self){
+  if(message === "!remsquad" && (user.badges.broadcaster == 1 || user.mod==true)){
+  sqw = sqw-1;
+    client.say("BeL1kePanda_Bot","Squad: "+sqw+" Wins ("+sqk+" Kills)");}
+  else if(message === "!remsquad k" && (user.badges.broadcaster == 1 || user.mod==true)){
+    sqw = sqw-1;
+    sqk.pop();
+      client.say("BeL1kePanda_Bot","Squad: "+sqw+" Wins ("+sqk+" Kills)");}
+          });
 
 //Reset
 client.on('chat', function(channel, user, message, self){
