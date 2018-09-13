@@ -1,0 +1,15 @@
+{
+  "name": "BeL1kePanda_Bot",
+  "version": "1.0.0",
+  "description": "Twitch Bot by BeL1kePanda",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "BeL1kePanda",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "tmi.js": "^1.2.1"
+  }
+}
