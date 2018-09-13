@@ -46,12 +46,12 @@ client.on('chat', function(channel, user, message, self){
   sk.push(message.match(/\d+/g));
     client.say("BeL1kePanda_Bot","Solo: "+sw+" Wins ("+sk+" Kills)");}});
 */
+function  myWins(){
 var swins = "Solo: "+sw+" Wins ("+sk+" Kills)"
 var dwins = "Duo: "+dw+" Wins ("+dk+" Kills)"
 var sqwins = "Squad: "+sqw+" Wins ("+sqk+" Kills)"
 var nowins = "Unfortunately, no wins today";
 var sp = ", ";
-function  myWins(){
   if(sw > 0 && dw > 0 && sqw > 0) {
 t222 = swins+sp+dwins+sp+sqwins}
 else if(sw > 0 && dw > 0){
