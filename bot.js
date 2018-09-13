@@ -38,13 +38,45 @@ var dk = []
 var sqk = []
 var t222
 
-
+/*
 //Solo
 client.on('chat', function(channel, user, message, self){
   if(message.match(/^!addsolo\s\d{1,2}$/gmi) && (user.badges.broadcaster == 1 || user.mod==true)){
   sw = sw+1;
   sk.push(message.match(/\d+/g));
     client.say("BeL1kePanda_Bot","Solo: "+sw+" Wins ("+sk+" Kills)");}});
+*/
+var swins = "Solo: "+sw+" Wins ("+sk+" Kills)"
+var dwins = "Duo: "+dw+" Wins ("+dk+" Kills)"
+var sqwins = "Squad: "+sqw+" Wins ("+sqk+" Kills)"
+var nowins = "Unfortunately, no wins today";
+var sp = ", ";
+function  myWins(){
+  if(sw > 0 && dw > 0 && sqw > 0) {
+t222 = swins+sp+dwins+sp+sqwins}
+else if(sw > 0 && dw > 0){
+t222 = swins+sp+dwins}
+else if(sw > 0 && sqw > 0){
+t222 = swins+sp+sqwins}
+else if(dw > 0 && sqw > 0){
+t222 = dwins+sp+sqwins}
+else if(sw > 0){
+t222 = swins}
+else if(dw > 0){
+t222 = dwins}
+else if(sqw > 0){
+t222 = sqwins}
+else {
+t222 = nowins}
+}
+
+client.on('chat', function(channel, user, message, self){
+  if(message.match(/^!addsolo\s\d{1,2}$/gmi) && (user.badges.broadcaster == 1 || user.mod==true)){
+  sw = sw+1;
+  sk.push(message.match(/\d+/g));
+  myWins();
+    client.say("BeL1kePanda_Bot",t222);}});
+
 
 client.on('chat', function(channel, user, message, self){
   if(message === "!remsolo" && (user.badges.broadcaster == 1 || user.mod==true)){
