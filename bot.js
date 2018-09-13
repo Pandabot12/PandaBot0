@@ -52,7 +52,7 @@ client.on('chat', function(channel, user, message, self){
     client.say("BeL1kePanda_Bot","Solo: "+sw+" Wins ("+sk+" Kills)");}
   else if(message.match("!remsolo k") && (user.badges.broadcaster == 1 || user.mod==true)){
     sw = sw-1;
-    sk = sk.slice(0, -1);
+    sk.pop();
       client.say("BeL1kePanda_Bot","Solo: "+sw+" Wins ("+sk+" Kills)");}
   });
 //Duo
