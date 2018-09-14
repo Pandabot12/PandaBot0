@@ -73,6 +73,7 @@ client.on('chat', function(channel, user, message, self){
   if(message.match(/^!delsolo$/gmi) && (user.badges.broadcaster == 1 || user.mod==true)){
     sw = sw-1;
     sk.pop();
+    myWins();
     client.say("BeL1kePanda_Bot",t222);}
   });
 
@@ -81,6 +82,7 @@ client.on('chat', function(channel, user, message, self){
   if(message.match(/^!addduo\s\d{1,2}$/gmi) && (user.badges.broadcaster == 1 || user.mod==true)){
     dw = dw+1;
     dk.push(message.match(/\d+/g));
+    myWins();
     client.say("BeL1kePanda_Bot",t222);}
   });
 
@@ -89,6 +91,7 @@ client.on('chat', function(channel, user, message, self){
   if(message.match(/^!delduo$/gmi) && (user.badges.broadcaster == 1 || user.mod==true)){
     dw = dw-1;
     dk.pop();
+    myWins();
     client.say("BeL1kePanda_Bot",t222);}
   });
 
@@ -97,6 +100,7 @@ client.on('chat', function(channel, user, message, self){
   if(message.match(/^!addsquad\s\d{1,2}$/gmi) && (user.badges.broadcaster == 1 || user.mod==true)){
     sqw = sqw+1;
     sqk.push(message.match(/\d+/g));
+    myWins();
     client.say("BeL1kePanda_Bot",t222);}});
 
 //DelSquad
@@ -104,6 +108,7 @@ client.on('chat', function(channel, user, message, self){
   if(message.match(/^!delsquad$/gmi) && (user.badges.broadcaster == 1 || user.mod==true)){
     sqw = sqw-1;
     sqk.pop();
+    myWins();
     client.say("BeL1kePanda_Bot",t222);}
   });
 
@@ -117,12 +122,14 @@ client.on('chat', function(channel, user, message, self){
     dk = []
     sqk = []
     t222
+    myWins();
     client.say("BeL1kePanda_Bot",t222);}
   });
 
 //Wins
 client.on('chat', function(channel, user, message, self){
   if(message === "!wins"){
+    myWins();
     client.say("BeL1kePanda_Bot", t222)}
   });
 
