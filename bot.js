@@ -8,8 +8,8 @@ var options = {
     reconnect: true
   },
   identity: {
-    username: "BeL1kePanda_Bot",
-    password: process.env.autt
+    username: process.env.userr,
+    password: process.env.passs
   },
   channels: ["BeL1kePanda_Bot"]
 };
