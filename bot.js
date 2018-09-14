@@ -1,4 +1,5 @@
 var tmi = require ('tmi.js');
+var can = process.env.chann
 var options = {
   options: {
     debug: true
@@ -11,7 +12,7 @@ var options = {
     username: process.env.userr,
     password: process.env.passs
   },
-  channels: ["BeL1kePanda_Bot"]
+  channels: [can]
 };
 
 var client = new tmi.client(options);
@@ -24,7 +25,7 @@ client.on('connected', function(address, port) {
 });
 
 client.on('connected', function(address, port) {
-  client.say("BeL1kePanda_Bot", "Hello! I joined to this channel");
+  client.say(can, "Hello! I joined to this channel");
 });
 
 ///comm\\\
@@ -65,7 +66,7 @@ client.on('chat', function(channel, user, message, self){
     sw = sw+1;
     sk.push(message.match(/\d+/g));
     myWins();
-    client.say("BeL1kePanda_Bot",t222);}
+    client.say(can,t222);}
   });
 
 //DelSolo
@@ -74,7 +75,7 @@ client.on('chat', function(channel, user, message, self){
     sw = sw-1;
     sk.pop();
     myWins();
-    client.say("BeL1kePanda_Bot",t222);}
+    client.say(can,t222);}
   });
 
 //Duo
@@ -83,7 +84,7 @@ client.on('chat', function(channel, user, message, self){
     dw = dw+1;
     dk.push(message.match(/\d+/g));
     myWins();
-    client.say("BeL1kePanda_Bot",t222);}
+    client.say(can,t222);}
   });
 
 //DelDuo
@@ -92,7 +93,7 @@ client.on('chat', function(channel, user, message, self){
     dw = dw-1;
     dk.pop();
     myWins();
-    client.say("BeL1kePanda_Bot",t222);}
+    client.say(can,t222);}
   });
 
 //Squad
@@ -101,7 +102,7 @@ client.on('chat', function(channel, user, message, self){
     sqw = sqw+1;
     sqk.push(message.match(/\d+/g));
     myWins();
-    client.say("BeL1kePanda_Bot",t222);}});
+    client.say(can,t222);}});
 
 //DelSquad
 client.on('chat', function(channel, user, message, self){
@@ -109,7 +110,7 @@ client.on('chat', function(channel, user, message, self){
     sqw = sqw-1;
     sqk.pop();
     myWins();
-    client.say("BeL1kePanda_Bot",t222);}
+    client.say(can,t222);}
   });
 
 //Reset
@@ -123,14 +124,14 @@ client.on('chat', function(channel, user, message, self){
     sqk = [];
     t222
     myWins();
-    client.say("BeL1kePanda_Bot",t222);}
+    client.say(can,t222);}
   });
 
 //Wins
 client.on('chat', function(channel, user, message, self){
   if(message === "!wins"){
     myWins();
-    client.say("BeL1kePanda_Bot", t222);}
+    client.say(can, t222);}
   });
 
   ///console.log (user.user-type);
