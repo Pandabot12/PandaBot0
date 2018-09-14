@@ -121,8 +121,7 @@ client.on('chat', function(channel, user, message, self){
     sk = [];
     dk = [];
     sqk = [];
-    t222 =
-    myWins();
+    t222  
     client.say("BeL1kePanda_Bot",t222);}
   });
 
