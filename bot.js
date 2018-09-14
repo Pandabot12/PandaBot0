@@ -32,95 +32,80 @@ client.on('connected', function(address, port) {
 var sw = 0
 var dw = 0
 var sqw = 0
-
 var sk = []
 var dk = []
 var sqk = []
 var t222
+function  myWins(){
+  var swins = "Solo: "+sw+" Wins ("+sk+" Kills)"
+  var dwins = "Duo: "+dw+" Wins ("+dk+" Kills)"
+  var sqwins = "Squad: "+sqw+" Wins ("+sqk+" Kills)"
+  var nowins = "Unfortunately, no wins today";
+  if(sw > 0 && dw > 0 && sqw > 0) {
+    t222 = swins+sp+dwins+sp+sqwins}
+    else if(sw > 0 && dw > 0){
+      t222 = swins+sp+dwins}
+      else if(sw > 0 && sqw > 0){
+        t222 = swins+sp+sqwins}
+        else if(dw > 0 && sqw > 0){
+          t222 = dwins+sp+sqwins}
+          else if(sw > 0){
+            t222 = swins}
+            else if(dw > 0){
+              t222 = dwins}
+              else if(sqw > 0){
+                t222 = sqwins}
+                else {
+                  t222 = nowins}
+}
 
-/*
 //Solo
 client.on('chat', function(channel, user, message, self){
   if(message.match(/^!addsolo\s\d{1,2}$/gmi) && (user.badges.broadcaster == 1 || user.mod==true)){
-  sw = sw+1;
-  sk.push(message.match(/\d+/g));
-    client.say("BeL1kePanda_Bot","Solo: "+sw+" Wins ("+sk+" Kills)");}});
-*/
-function  myWins(){
-var swins = "Solo: "+sw+" Wins ("+sk+" Kills)"
-var dwins = "Duo: "+dw+" Wins ("+dk+" Kills)"
-var sqwins = "Squad: "+sqw+" Wins ("+sqk+" Kills)"
-var nowins = "Unfortunately, no wins today";
-var sp = ", ";
-  if(sw > 0 && dw > 0 && sqw > 0) {
-t222 = swins+sp+dwins+sp+sqwins}
-else if(sw > 0 && dw > 0){
-t222 = swins+sp+dwins}
-else if(sw > 0 && sqw > 0){
-t222 = swins+sp+sqwins}
-else if(dw > 0 && sqw > 0){
-t222 = dwins+sp+sqwins}
-else if(sw > 0){
-t222 = swins}
-else if(dw > 0){
-t222 = dwins}
-else if(sqw > 0){
-t222 = sqwins}
-else {
-t222 = nowins}
-}
+    sw = sw+1;
+    sk.push(message.match(/\d+/g));
+    myWins();
+    client.say("BeL1kePanda_Bot",t222);}
+  });
 
+//DelSolo
 client.on('chat', function(channel, user, message, self){
-  if(message.match(/^!addsolo\s\d{1,2}$/gmi) && (user.badges.broadcaster == 1 || user.mod==true)){
-  sw = sw+1;
-  sk.push(message.match(/\d+/g));
-  myWins();
-    client.say("BeL1kePanda_Bot",t222);}});
-
-
-client.on('chat', function(channel, user, message, self){
-  if(message === "!remsolo" && (user.badges.broadcaster == 1 || user.mod==true)){
-  sw = sw-1;
-    client.say("BeL1kePanda_Bot","Solo: "+sw+" Wins ("+sk+" Kills)");}
-  else if(message === "!remsolo k" && (user.badges.broadcaster == 1 || user.mod==true)){
+  if(message.match(/^!delsolo$/gmi) && (user.badges.broadcaster == 1 || user.mod==true)){
     sw = sw-1;
     sk.pop();
-      client.say("BeL1kePanda_Bot","Solo: "+sw+" Wins ("+sk+" Kills)");}
+    client.say("BeL1kePanda_Bot",t222);}
   });
 
 //Duo
 client.on('chat', function(channel, user, message, self){
-  if(message.match(/(!addduo)+/i) && (user.badges.broadcaster == 1 || user.mod==true)){
-  dw = dw+1;
-  dk.push(message.match(/\d+/g));
-    client.say("BeL1kePanda_Bot","Duo: "+dw+" Wins ("+dk+" Kills)");}});
+  if(message.match(/^!addduo\s\d{1,2}$/gmi) && (user.badges.broadcaster == 1 || user.mod==true)){
+    dw = dw+1;
+    dk.push(message.match(/\d+/g));
+    client.say("BeL1kePanda_Bot",t222);}
+  });
 
+//DelDuo
 client.on('chat', function(channel, user, message, self){
-  if(message === "!remduo" && (user.badges.broadcaster == 1 || user.mod==true)){
-  dw = dw-1;
-    client.say("BeL1kePanda_Bot","Duo: "+dw+" Wins ("+dk+" Kills)");}
-  else if(message === "!remduo k" && (user.badges.broadcaster == 1 || user.mod==true)){
+  if(message.match(/^!delduo$/gmi) && (user.badges.broadcaster == 1 || user.mod==true)){
     dw = dw-1;
     dk.pop();
-      client.say("BeL1kePanda_Bot","Duo: "+dw+" Wins ("+dk+" Kills)");}
-      });
+    client.say("BeL1kePanda_Bot",t222);}
+  });
 
 //Squad
 client.on('chat', function(channel, user, message, self){
-  if(message.match(/(!addsquad)+/i) && (user.badges.broadcaster == 1 || user.mod==true)){
-  sqw = sqw+1;
-  sqk.push(message.match(/\d+/g));
-    client.say("BeL1kePanda_Bot","Squad: "+sqw+" Wins ("+sqk+" Kills)");}});
+  if(message.match(/^!addsquad\s\d{1,2}$/gmi) && (user.badges.broadcaster == 1 || user.mod==true)){
+    sqw = sqw+1;
+    sqk.push(message.match(/\d+/g));
+    client.say("BeL1kePanda_Bot",t222);}});
 
+//DelSquad
 client.on('chat', function(channel, user, message, self){
-  if(message === "!remsquad" && (user.badges.broadcaster == 1 || user.mod==true)){
-  sqw = sqw-1;
-    client.say("BeL1kePanda_Bot","Squad: "+sqw+" Wins ("+sqk+" Kills)");}
-  else if(message === "!remsquad k" && (user.badges.broadcaster == 1 || user.mod==true)){
+  if(message.match(/^!delsquad$/gmi) && (user.badges.broadcaster == 1 || user.mod==true)){
     sqw = sqw-1;
     sqk.pop();
-      client.say("BeL1kePanda_Bot","Squad: "+sqw+" Wins ("+sqk+" Kills)");}
-          });
+    client.say("BeL1kePanda_Bot",t222);}
+  });
 
 //Reset
 client.on('chat', function(channel, user, message, self){
@@ -132,38 +117,15 @@ client.on('chat', function(channel, user, message, self){
     dk = []
     sqk = []
     t222
-    client.say("BeL1kePanda_Bot","Done");}});
+    client.say("BeL1kePanda_Bot",t222);}
+  });
 
 //Wins
 client.on('chat', function(channel, user, message, self){
   if(message === "!wins"){
-    var swins = "Solo: "+sw+" Wins ("+sk+" Kills)"
-    var dwins = "Duo: "+dw+" Wins ("+dk+" Kills)"
-    var sqwins = "Squad: "+sqw+" Wins ("+sqk+" Kills)"
-    var nowins = "Unfortunately, no wins today";
-    var sp = ", ";
-  function  myfunction(){
-      if(sw > 0 && dw > 0 && sqw > 0) {
-    t222 = swins+sp+dwins+sp+sqwins}
-    else if(sw > 0 && dw > 0){
-    t222 = swins+sp+dwins}
-    else if(sw > 0 && sqw > 0){
-    t222 = swins+sp+sqwins}
-    else if(dw > 0 && sqw > 0){
-    t222 = dwins+sp+sqwins}
-    else if(sw > 0){
-    t222 = swins}
-    else if(dw > 0){
-    t222 = dwins}
-    else if(sqw > 0){
-    t222 = sqwins}
-    else {
-    t222 = nowins}
-    }
-    myfunction();
-    client.say("BeL1kePanda_Bot", t222)
-    ///console.log (user.user-type);
-    //console.log(user.badges.broadcaster, user.mod );
-    //console.log ();
-  }
-});
+    client.say("BeL1kePanda_Bot", t222)}
+  });
+
+  ///console.log (user.user-type);
+  //console.log(user.badges.broadcaster, user.mod );
+  //console.log ();
