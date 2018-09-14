@@ -115,7 +115,7 @@ client.on('chat', function(channel, user, message, self){
 
 //Reset
 client.on('chat', function(channel, user, message, self){
-  if(message === "!reset"){
+  if(message === "!reset" && (user.badges.broadcaster == 1 || user.mod==true)){
     sw = 0;
     dw = 0;
     sqw = 0;
